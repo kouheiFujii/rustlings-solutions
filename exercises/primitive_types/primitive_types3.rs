@@ -2,10 +2,9 @@
 // Create an array with at least 100 elements in it where the ??? is.
 // Execute `rustlings hint primitive_types3` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
-
 fn main() {
-    let a = ???
+    //vec: 可変長配列。vec!マクロで初期化。vec![初期値; 要素数]
+    let a = vec![0; 50];
 
     if a.len() >= 100 {
         println!("Wow, that's a big array!");
