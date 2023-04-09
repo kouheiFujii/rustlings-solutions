@@ -6,12 +6,10 @@
 // vec0 has length 3 content `[22, 44, 66]`
 // vec1 has length 4 content `[22, 44, 66, 88]`
 
-// I AM NOT DONE
-
 fn main() {
     let vec0 = Vec::new();
 
-    let mut vec1 = fill_vec(vec0);
+    let mut vec1 = fill_vec(&vec0); // `&`をつけることで、fill_vec()にvec0の参照を渡す。
 
     // Do not change the following line!
     println!("{} has length {} content `{:?}`", "vec0", vec0.len(), vec0);
@@ -21,8 +19,9 @@ fn main() {
     println!("{} has length {} content `{:?}`", "vec1", vec1.len(), vec1);
 }
 
-fn fill_vec(vec: Vec<i32>) -> Vec<i32> {
-    let mut vec = vec;
+// `&Vec` はvec0の値を「借用」していることを示す。
+fn fill_vec(vec: &Vec<i32>) -> Vec<i32> {
+    let mut vec = vec.to_vec(); // to_vec()で Vec<i32>型に変換する。
 
     vec.push(22);
     vec.push(44);
