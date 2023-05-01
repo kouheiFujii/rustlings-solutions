@@ -16,16 +16,13 @@
 
 // Execute `rustlings hint errors5` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
-
 use std::error;
 use std::fmt;
 use std::num::ParseIntError;
 
-// TODO: update the return type of `main()` to make this compile.
-fn main() -> Result<(), Box<dyn ???>> {
+fn main() -> Result<(), Box<dyn error::Error>> {
     let pretend_user_input = "42";
-    let x: i64 = pretend_user_input.parse()?;
+    let x: i64 = pretend_user_input.parse()?; // `?`演算子が `From:from` を呼び出しボックス型に変換している (Box<dyn error::Error>). ref: https://doc.rust-lang.org/stable/rust-by-example/error/multiple_error_types/boxing_errors.html
     println!("output={:?}", PositiveNonzeroInteger::new(x)?);
     Ok(())
 }
